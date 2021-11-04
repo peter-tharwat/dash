@@ -40,16 +40,16 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <div  class="col-md-4 col-form-label text-md-right"></div>
+                            <div class="col-md-6">
+                                <input class="form-check-input ms-2 me-0" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} style="position:relative;">
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
+                                <label class="form-check-label" for="remember" style="position:relative;">
+                                    {{ __('Remember Me') }}
+                                </label>
                             </div>
                         </div>
+ 
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">

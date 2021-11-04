@@ -12,17 +12,23 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return redirect()->route('admin.index');
-})->name('dashboard');
-Route::prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('/',[AdminController::class,'index'])->name('admin.index');
-});
 Auth::routes();
+Route::get('/', function () {return view('front.index');});
 
+Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
+    Route::get('/',[AdminController::class,'index'])->name('index');
+
+
+
+
+    Route::post('/upload-image',[AdminController::class,'upload-image'])->name('upload-image');
+    Route::post('/notifications-seen',[AdminController::class,'notifications_seen'])->name('notifications.seen');
+});
+
+
+
+
+/*
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+*/
+ 
